@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "../../../../@lib/shadcn-utils";
+import { cn } from "@lro-ui/utils";
 
 export function NavLink({
   href,

@@ -1,4 +1,4 @@
-import { cn } from "../@lib/shadcn-utils";
+import { cn } from "@lro-ui/utils";
 
 type TitleProps = Readonly<{
   children: React.ReactNode;

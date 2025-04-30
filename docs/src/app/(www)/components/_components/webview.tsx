@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { cn } from "../../../../@lib/shadcn-utils";
+import { cn } from "@lro-ui/utils";
 
 export type WebviewProps = {
   title: string;

@@ -1,4 +1,4 @@
-import { Button } from "../../../../../@design-system/components/button/button";
+import { Button } from "@lro-ui/button";
 
 export default function ButtonSizesPreview() {
   return (

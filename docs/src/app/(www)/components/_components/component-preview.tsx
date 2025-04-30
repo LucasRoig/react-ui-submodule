@@ -4,7 +4,7 @@ import { Monitor, Smartphone, Tablet } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../../@components/tabs";
 import { ToggleGroup, ToggleGroupItem } from "../../../../@components/toggle-group";
-import { cn } from "../../../../@lib/shadcn-utils";
+import { cn } from "@lro-ui/utils";
 import { Webview } from "./webview";
 
 export type ComponentPreviewProps = Readonly<{

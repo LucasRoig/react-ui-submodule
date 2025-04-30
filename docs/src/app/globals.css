@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@source "../../../../design-system/components/**/src/**";
+@source not "../../../../design-system/components/**/node_modules/**";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
