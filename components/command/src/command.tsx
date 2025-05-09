@@ -120,6 +120,10 @@ const CommandShortcut = ({
 }
 CommandShortcut.displayName = "CommandShortcut"
 
+
+function CommandLoading({ className, ref, ...props }: React.ComponentProps<typeof CommandPrimitive.Loading>) {
+  return <CommandPrimitive.Loading ref={ref} className={cn("", className)} {...props} />
+}
 export {
   Command,
   CommandDialog,
@@ -130,4 +134,5 @@ export {
   CommandItem,
   CommandShortcut,
   CommandSeparator,
+  CommandLoading,
 }
