@@ -6,6 +6,8 @@ import { X } from "lucide-react"
 
 import { cn } from "@lro-ui/utils"
 
+export type ModalProps = DialogPrimitive.DialogProps;
+
 const Modal = DialogPrimitive.Root
 
 const ModalTrigger = DialogPrimitive.Trigger

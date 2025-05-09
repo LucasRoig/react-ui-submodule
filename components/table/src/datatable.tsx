@@ -15,15 +15,18 @@ import {
   TableHeader,
   TableRow,
 } from "./table"
+import { cn } from "@lro-ui/utils"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  stickyHeader?: boolean
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  stickyHeader = true,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -32,9 +35,9 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
+    <div className="rounded-md border overflow-auto">
+      <Table className="relative overflow-auto max-h-full">
+        <TableHeader className={cn("z-20", stickyHeader && "sticky top-0")}>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
@@ -52,7 +55,7 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody>
+        <TableBody className="overflow-auto">
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
