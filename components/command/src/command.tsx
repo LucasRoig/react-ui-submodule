@@ -5,7 +5,8 @@ import { Command as CommandPrimitive } from "cmdk"
 import { Search } from "lucide-react"
 
 import { cn } from "@lro-ui/utils"
-import { Modal, ModalContent, type ModalProps } from "@lro-ui/modal"
+import { Modal, ModalContent, ModalTitle, type ModalProps } from "@lro-ui/modal"
+import { VisuallyHidden } from "@lro-ui/visually-hidden"
 
 function Command({ className, ref, ...props }: React.ComponentProps<typeof CommandPrimitive>) {
   return (
@@ -24,6 +25,9 @@ const CommandDialog = ({ children, ...props }: ModalProps) => {
   return (
     <Modal {...props}>
       <ModalContent className="overflow-hidden p-0 shadow-lg">
+        <VisuallyHidden>
+          <ModalTitle>Command Palette</ModalTitle>
+        </VisuallyHidden>
         <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
           {children}
         </Command>
