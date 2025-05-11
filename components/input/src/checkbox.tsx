@@ -6,10 +6,17 @@ import { Check } from "lucide-react"
 
 import { cn } from "@lro-ui/utils"
 
+type CheckboxProps = Omit<React.ComponentProps<typeof CheckboxPrimitive.Root>, "onCheckedChange"> & {
+  onCheckedChange?: (value: boolean) => void
+}
 
-function Checkbox({ className, ref, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
+function Checkbox({ className, ref, onCheckedChange, ...props }: CheckboxProps) {
+
   return (
     <CheckboxPrimitive.Root
+      onCheckedChange={(v) => {
+        const determinateValue = v === "indeterminate" ? false : v
+      }}
       ref={ref}
       className={cn(
         "peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
