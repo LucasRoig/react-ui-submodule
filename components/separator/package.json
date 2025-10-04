@@ -1,0 +1,23 @@
+{
+  "name": "@lro-ui/separator",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "lint": "biome ci",
+    "fix": "biome check --write"
+  },
+  "devDependencies": {
+    "@lro-ui/typescript-config": "workspace:*",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@lro-ui/utils": "workspace:*",
+    "@radix-ui/react-separator": "^1.1.7",
+    "react": "^19.1.0"
+  }
+}
