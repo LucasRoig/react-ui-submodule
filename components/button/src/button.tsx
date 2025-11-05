@@ -24,7 +24,8 @@ const buttonVariants = tv({
     size: {
       large: "",
       default: "",
-      small: "",
+      small: "px-1.5 py-1.5",
+      icon: "px-1.5 py-1.5",
     },
   },
   defaultVariants: {
