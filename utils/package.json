@@ -12,12 +12,12 @@
   "devDependencies": {
     "@lro-ui/typescript-config": "workspace:*",
     "typescript": "^5.8.2",
-    "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.0"
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2"
   },
   "dependencies": {
     "clsx": "^2.0.0",
     "tailwind-merge": "^1.14.0",
-    "react": "^19.1.0"
+    "react": "^19.2.0"
   }
 }
