@@ -27,7 +27,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@lro-ui/tooltip"
-import { tv, VariantProps } from "tailwind-variants"
+import { tv, type VariantProps } from "tailwind-variants"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7

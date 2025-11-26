@@ -4,7 +4,7 @@ import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 
 import { cn } from "@lro-ui/utils"
-import { tv, VariantProps } from "tailwind-variants"
+import { tv, type VariantProps } from "tailwind-variants"
 
 
 const labelVariants = tv({
