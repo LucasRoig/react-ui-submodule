@@ -1,36 +1,28 @@
-"use client"
+"use client";
 
+import { cn } from "@lro-ui/utils";
 import {
-  ColumnDef,
+  type ColumnDef,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
-  OnChangeFn,
-  Row,
-  RowSelectionState,
+  type OnChangeFn,
+  type Row,
+  type RowSelectionState,
   useReactTable,
-} from "@tanstack/react-table"
-
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "./table"
-import { cn } from "@lro-ui/utils"
-import { DataTablePagination } from "./pagination"
+} from "@tanstack/react-table";
+import { DataTablePagination } from "./pagination";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./table";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-  stickyHeader?: boolean
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+  stickyHeader?: boolean;
   rowSelectionModel?: {
-    rowSelection: RowSelectionState,
-    setRowSelection: OnChangeFn<RowSelectionState>,
-    enableRowSelection?: (row: Row<TData>) => boolean
-  }
+    rowSelection: RowSelectionState;
+    setRowSelection: OnChangeFn<RowSelectionState>;
+    enableRowSelection?: (row: Row<TData>) => boolean;
+  };
 }
 
 export function DataTable<TData, TValue>({
@@ -47,15 +39,18 @@ export function DataTable<TData, TValue>({
     initialState: {
       pagination: {
         pageIndex: 1,
-        pageSize: 50
-      }
+        pageSize: 50,
+      },
     },
     state: {
       rowSelection: props.rowSelectionModel?.rowSelection,
     },
     onRowSelectionChange: props.rowSelectionModel?.setRowSelection,
-    enableRowSelection: props.rowSelectionModel?.enableRowSelection !== undefined ? props.rowSelectionModel.enableRowSelection : props.rowSelectionModel !== undefined,
-  })
+    enableRowSelection:
+      props.rowSelectionModel?.enableRowSelection !== undefined
+        ? props.rowSelectionModel.enableRowSelection
+        : props.rowSelectionModel !== undefined,
+  });
 
   return (
     <div>
@@ -67,14 +62,9 @@ export function DataTable<TData, TValue>({
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
-                  )
+                  );
                 })}
               </TableRow>
             ))}
@@ -82,14 +72,9 @@ export function DataTable<TData, TValue>({
           <TableBody className="overflow-auto">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
+                <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
+                    <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
                   ))}
                 </TableRow>
               ))
@@ -105,5 +90,5 @@ export function DataTable<TData, TValue>({
         <DataTablePagination table={table} />
       </div>
     </div>
-  )
+  );
 }
