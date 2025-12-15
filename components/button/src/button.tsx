@@ -1,5 +1,5 @@
 import { Slot } from "@radix-ui/react-slot";
-import { type VariantProps, tv } from "tailwind-variants";
+import { tv, type VariantProps } from "tailwind-variants";
 
 const buttonVariants = tv({
   base: `inline-flex items-center justify-center gap-2
@@ -37,12 +37,15 @@ const buttonVariants = tv({
 
 type ButtonVariantsProps = VariantProps<typeof buttonVariants>;
 
-type ButtonProps = React.ComponentProps<"button"> & ButtonVariantsProps & {
-  asChild?: boolean;
-};
+type ButtonProps = React.ComponentProps<"button"> &
+  ButtonVariantsProps & {
+    asChild?: boolean;
+  };
 
 export function Button({ className, variant, disabled, size, asChild, ref, ...props }: ButtonProps) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot : "button";
 
-  return <Comp ref={ref} className={buttonVariants({ variant, className, size, disabled })} disabled={disabled} {...props} />;
+  return (
+    <Comp ref={ref} className={buttonVariants({ variant, className, size, disabled })} disabled={disabled} {...props} />
+  );
 }
