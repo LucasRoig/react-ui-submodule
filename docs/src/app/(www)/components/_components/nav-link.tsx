@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@lro-ui/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@lro-ui/utils";
 
 export function NavLink({
   href,

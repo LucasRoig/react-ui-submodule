@@ -3,6 +3,7 @@ import { compileMDX } from "@content-collections/mdx";
 import { rehypePrettyCode } from "rehype-pretty-code";
 import { createHighlighter } from "shiki";
 import { rehypeComponent } from "./rehype-plugins/rehype-components";
+
 const posts = defineCollection({
   name: "posts",
   directory: "content-collections/posts",

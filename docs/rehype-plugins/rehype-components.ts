@@ -7,6 +7,7 @@ import type { UnistNode, UnistTree } from "./unist-types";
 // import { styles } from "../registry/registry-styles"
 
 export function rehypeComponent() {
+  // biome-ignore lint/suspicious/useAwait: <explanation>
   return async (tree: UnistTree) => {
     visit(tree, (node: UnistNode) => {
       if (node.name === "ComponentPreview") {
