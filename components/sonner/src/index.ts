@@ -1,2 +1,2 @@
-export * from "./toaster";
 export { toast } from "sonner";
+export * from "./toaster";
