@@ -1,15 +1,16 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": true
+  "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
   },
   "formatter": {
     "enabled": true,
     "indentWidth": 2,
     "indentStyle": "space",
     "lineWidth": 120,
-    "lineEnding": "lf",
-    "ignore": []
+    "lineEnding": "lf"
   },
   "linter": {
     "enabled": true,
@@ -27,26 +28,41 @@
         "noForEach": "off"
       },
       "suspicious": {
-        "noConsoleLog": "warn",
+        "noConsole": "warn",
         "useAwait": "error"
       }
-    },
-    "ignore": ["**/.*.js", "**/node_modules/"]
+    }
   },
   "javascript": {
     "globals": ["React", "JSX"]
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      "**/.next/**",
-      "**/.vscode/**",
-      "**/.turbo/**",
-      "**/node_modules/**",
-      "**/dist/**",
-      "**/generated/**",
-      "**/coverage/**",
-      "**/.content-collections/**"
+
+    "includes": [
+      "**",
+      "!**/.*.js",
+      "!**/.next",
+      "!**/.vscode",
+      "!**/.turbo",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/generated",
+      "!**/coverage",
+      "!**/.content-collections"
     ]
   }
 }
