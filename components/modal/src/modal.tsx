@@ -1,20 +1,19 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as DialogPrimitive from "@radix-ui/react-dialog"
-import { X } from "lucide-react"
-
-import { cn } from "@lro-ui/utils"
+import { cn } from "@lro-ui/utils";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { X } from "lucide-react";
+import type * as React from "react";
 
 export type ModalProps = DialogPrimitive.DialogProps;
 
-const Modal = DialogPrimitive.Root
+const Modal = DialogPrimitive.Root;
 
-const ModalTrigger = DialogPrimitive.Trigger
+const ModalTrigger = DialogPrimitive.Trigger;
 
-const ModalPortal = DialogPrimitive.Portal
+const ModalPortal = DialogPrimitive.Portal;
 
-const ModalClose = DialogPrimitive.Close
+const ModalClose = DialogPrimitive.Close;
 
 function ModalOverlay({ className, ref, ...props }: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
   return (
@@ -22,11 +21,11 @@ function ModalOverlay({ className, ref, ...props }: React.ComponentProps<typeof 
       ref={ref}
       className={cn(
         "fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function ModalContent({ className, children, ref, ...props }: React.ComponentProps<typeof DialogPrimitive.Content>) {
@@ -48,7 +47,7 @@ function ModalContent({ className, children, ref, ...props }: React.ComponentPro
           data-[state=closed]:zoom-out-95  data-[state=closed]:slide-out-to-left-1/2
           data-[state=closed]:slide-out-to-top-[48%]
           sm:rounded-lg`,
-          className
+          className,
         )}
         {...props}
       >
@@ -59,31 +58,17 @@ function ModalContent({ className, children, ref, ...props }: React.ComponentPro
         </DialogPrimitive.Close>
       </DialogPrimitive.Content>
     </ModalPortal>
-  )
+  );
 }
 
 function ModalHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn(
-        "flex flex-col px-6 space-y-1.5 text-center sm:text-left",
-        className
-      )}
-      {...props}
-    />
-  )
+  return <div className={cn("flex flex-col px-6 space-y-1.5 text-center sm:text-left", className)} {...props} />;
 }
 
 function ModalFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      className={cn(
-        "flex flex-col-reverse px-6 sm:flex-row sm:justify-end sm:space-x-2",
-        className
-      )}
-      {...props}
-    />
-  )
+    <div className={cn("flex flex-col-reverse px-6 sm:flex-row sm:justify-end sm:space-x-2", className)} {...props} />
+  );
 }
 
 function ModalBody({ className, ref, children, ...props }: React.ComponentProps<"div">) {
@@ -91,30 +76,23 @@ function ModalBody({ className, ref, children, ...props }: React.ComponentProps<
     <div className={cn("px-6 overflow-auto", className)} ref={ref} {...props}>
       {children}
     </div>
-  )
+  );
 }
 
 function ModalTitle({ className, ref, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) {
   return (
     <DialogPrimitive.Title
       ref={ref}
-      className={cn(
-        "text-lg font-semibold leading-none tracking-tight",
-        className
-      )}
+      className={cn("text-lg font-semibold leading-none tracking-tight", className)}
       {...props}
     />
-  )
+  );
 }
 
 function ModalDescription({ className, ref, ...props }: React.ComponentProps<typeof DialogPrimitive.Description>) {
   return (
-    <DialogPrimitive.Description
-      ref={ref}
-      className={cn("text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  )
+    <DialogPrimitive.Description ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+  );
 }
 
 export {
@@ -129,4 +107,4 @@ export {
   ModalTitle,
   ModalDescription,
   ModalBody,
-}
+};
