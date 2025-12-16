@@ -183,7 +183,7 @@ function FieldError({
       return null;
     }
 
-    const unifiedErrors = errors.map((error) => typeof error === "string" ? { message: error } : error);
+    const unifiedErrors = errors.map((error) => (typeof error === "string" ? { message: error } : error));
     const uniqueErrors = [...new Map(unifiedErrors.map((error) => [error?.message, error])).values()];
 
     if (uniqueErrors?.length === 1) {

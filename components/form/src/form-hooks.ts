@@ -1,0 +1,30 @@
+import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
+import { useCallback } from "react";
+import { FormRoot } from "./components/form-root";
+import { SubmitButton } from "./components/submit-button";
+import { TextField } from "./fields/text-field";
+
+export const { fieldContext, formContext, useFieldContext, useFormContext } = createFormHookContexts();
+
+export const { useAppForm } = createFormHook({
+  fieldContext,
+  formContext,
+  fieldComponents: {
+    TextField,
+  },
+  formComponents: {
+    SubmitButton,
+    FormRoot,
+  },
+});
+
+export const useFocusFirstInvalidField = (formRef: React.RefObject<HTMLFormElement | null>) =>
+  useCallback(() => {
+    requestAnimationFrame(() => {
+      const invalidInput = formRef.current?.querySelector('[aria-invalid="true"]') as HTMLInputElement;
+      if (invalidInput) {
+        invalidInput.focus();
+        invalidInput.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+  }, [formRef]);
