@@ -1,1 +1,1 @@
-export { useAppForm, useFocusFirstInvalidField } from "./form-hooks";
+export { type FormProviderProps, useAppForm, useFocusFirstInvalidField } from "./form-hooks";

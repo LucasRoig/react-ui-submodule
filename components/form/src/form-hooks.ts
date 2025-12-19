@@ -7,7 +7,7 @@ import { TextField } from "./fields/text-field";
 
 export const { fieldContext, formContext, useFieldContext, useFormContext } = createFormHookContexts();
 
-export const { useAppForm } = createFormHook({
+export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   fieldContext,
   formContext,
   fieldComponents: {
@@ -30,3 +30,15 @@ export const useFocusFirstInvalidField = (formRef: React.RefObject<HTMLFormEleme
       }
     });
   }, [formRef]);
+
+type FormSubmitButtonProps = {
+  children: React.ReactNode;
+};
+
+export type FormProviderProps<TSuccess> = {
+  onSuccess?: (created: TSuccess) => void;
+  children: (props: {
+    FormBody: () => React.ReactNode;
+    FormSubmitButton: (props: FormSubmitButtonProps) => React.ReactNode;
+  }) => React.ReactNode;
+};
