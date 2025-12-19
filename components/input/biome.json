@@ -17,6 +17,7 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": { "useSemanticElements": "warn" },
       "correctness": {
         "noUnusedVariables": "error",
         "noUnusedImports": "info"
