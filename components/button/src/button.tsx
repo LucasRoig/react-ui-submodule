@@ -17,6 +17,7 @@ const buttonVariants = tv({
       primary: "bg-neutral-950 text-white hover:bg-neutral-800",
       secondary: "border-neutral-300 text-neutral-950 hover:bg-neutral-100",
       text: "hover:bg-neutral-100",
+      "text-destructive": "hover:text-destructive hover:bg-destructive/5",
     },
     disabled: {
       true: "pointer-events-none",
@@ -25,6 +26,7 @@ const buttonVariants = tv({
       large: "",
       default: "",
       small: "px-1.5 py-1.5",
+      xs: "px-1.5 py-0.25 text-sm/6",
       icon: "px-1.5 py-1.5",
     },
   },
