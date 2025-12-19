@@ -16,6 +16,7 @@ const buttonVariants = tv({
     variant: {
       primary: "bg-neutral-950 text-white hover:bg-neutral-800",
       secondary: "border-neutral-300 text-neutral-950 hover:bg-neutral-100",
+      destructive: "bg-destructive text-white hover:bg-destructive/80",
       text: "hover:bg-neutral-100",
       "text-destructive": "hover:text-destructive hover:bg-destructive/5",
     },
