@@ -2,6 +2,7 @@ import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
 import { useCallback } from "react";
 import { FormRoot } from "./components/form-root";
 import { SubmitButton } from "./components/submit-button";
+import { ShadcnComboboxField } from "./fields/shadcn-combobox-field";
 import { TextAreaField } from "./fields/text-area-field";
 import { TextField } from "./fields/text-field";
 
@@ -13,6 +14,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   fieldComponents: {
     TextField,
     TextAreaField,
+    ShadcnComboboxField,
   },
   formComponents: {
     SubmitButton,
