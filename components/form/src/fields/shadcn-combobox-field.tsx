@@ -9,11 +9,12 @@ import { useId, useState } from "react";
 import { useFieldContext } from "../form-hooks";
 
 export type ShadcnComboboxFieldProps<T extends number | string | undefined> = {
-  options: { value: NonNullable<T>; label: string }[];
+  options: { value: NonNullable<T>; label: string | React.ReactNode }[];
   label: string;
   description?: string;
   placeholder: string;
   noMatchMessage: string;
+  triggerClassName?: string;
 };
 
 export function ShadcnComboboxField<T extends number | string | undefined>(props: ShadcnComboboxFieldProps<T>) {
@@ -22,7 +23,6 @@ export function ShadcnComboboxField<T extends number | string | undefined>(props
 
   const field = useFieldContext<T | undefined>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
-
   return (
     <Field data-invalid={isInvalid}>
       <FieldLabel htmlFor={id}>{props.label}</FieldLabel>
@@ -34,7 +34,7 @@ export function ShadcnComboboxField<T extends number | string | undefined>(props
             variant="secondary"
             role="combobox"
             aria-expanded={open}
-            className="justify-between"
+            className={cn("justify-between", props.triggerClassName)}
           >
             {field.state.value
               ? props.options.find((option) => option.value === field.state.value)?.label
@@ -53,12 +53,14 @@ export function ShadcnComboboxField<T extends number | string | undefined>(props
                     key={option.value}
                     value={String(option.value)}
                     onSelect={(newValue) => {
-                      if (field.state.value === undefined) {
-                        field.handleChange(undefined);
-                      } else if (typeof field.state.value === "number") {
-                        field.handleChange(newValue === String(field.state.value) ? undefined : Number(newValue));
+                      if (typeof option.value === "string") {
+                        const updateValue = (newValue === field.state.value ? undefined : newValue) as T | undefined;
+                        field.handleChange(updateValue);
                       } else {
-                        field.handleChange(newValue === field.state.value ? undefined : newValue);
+                        const updateValue = (newValue === String(field.state.value) ? undefined : Number(newValue)) as
+                          | T
+                          | undefined;
+                        field.handleChange(updateValue);
                       }
                       setOpen(false);
                     }}
