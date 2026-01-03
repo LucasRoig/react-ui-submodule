@@ -8,19 +8,19 @@ import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
 import { useId, useState } from "react";
 import { useFieldContext } from "../form-hooks";
 
-export type ShadcnComboboxFieldProps = {
-  options: { value: string; label: string }[];
+export type ShadcnComboboxFieldProps<T extends number | string | undefined> = {
+  options: { value: NonNullable<T>; label: string }[];
   label: string;
   description?: string;
   placeholder: string;
   noMatchMessage: string;
 };
 
-export function ShadcnComboboxField(props: ShadcnComboboxFieldProps) {
+export function ShadcnComboboxField<T extends number | string | undefined>(props: ShadcnComboboxFieldProps<T>) {
   const id = useId();
   const [open, setOpen] = useState(false);
 
-  const field = useFieldContext<string | undefined>();
+  const field = useFieldContext<T | undefined>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
   return (
@@ -51,9 +51,15 @@ export function ShadcnComboboxField(props: ShadcnComboboxFieldProps) {
                 {props.options.map((option) => (
                   <CommandItem
                     key={option.value}
-                    value={option.value}
-                    onSelect={(currentValue) => {
-                      field.handleChange(currentValue === field.state.value ? undefined : currentValue);
+                    value={String(option.value)}
+                    onSelect={(newValue) => {
+                      if (field.state.value === undefined) {
+                        field.handleChange(undefined);
+                      } else if (typeof field.state.value === "number") {
+                        field.handleChange(newValue === String(field.state.value) ? undefined : Number(newValue));
+                      } else {
+                        field.handleChange(newValue === field.state.value ? undefined : newValue);
+                      }
                       setOpen(false);
                     }}
                   >
