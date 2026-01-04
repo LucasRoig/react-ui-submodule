@@ -9,7 +9,7 @@ import { useId, useState } from "react";
 import { useFieldContext } from "../form-hooks";
 
 export type ShadcnComboboxFieldProps<T extends number | string | undefined> = {
-  options: { value: NonNullable<T>; label: string | React.ReactNode }[];
+  options: { value: NonNullable<T>; label: string | React.ReactNode; keywords?: string[] }[];
   label: string;
   description?: string;
   placeholder: string;
@@ -51,6 +51,7 @@ export function ShadcnComboboxField<T extends number | string | undefined>(props
                 {props.options.map((option) => (
                   <CommandItem
                     key={option.value}
+                    keywords={option.keywords}
                     value={String(option.value)}
                     onSelect={(newValue) => {
                       if (typeof option.value === "string") {
