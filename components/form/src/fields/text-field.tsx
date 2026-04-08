@@ -13,15 +13,19 @@ export function TextField(props: TextFieldProps) {
   return (
     <Field data-invalid={isInvalid}>
       <FieldLabel htmlFor={field.name}>{props.label}</FieldLabel>
-      <Input
-        id={field.name}
-        name={field.name}
-        value={field.state.value}
-        onBlur={field.handleBlur}
-        onChange={(e) => field.handleChange(e.target.value)}
-        aria-invalid={isInvalid}
-        autoComplete="off"
-      />
+      <div> {/* Without this wrapper, the lastpass extension adds an element inside the parent flex element which breaks the layout.
+        /* Thanks to this wrapper, the lastpass extension adds an element inside the wrapper and not the parent flex element, which keeps the layout intact.
+        */}
+        <Input
+          id={field.name}
+          name={field.name}
+          value={field.state.value}
+          onBlur={field.handleBlur}
+          onChange={(e) => field.handleChange(e.target.value)}
+          aria-invalid={isInvalid}
+          autoComplete="off"
+        />
+      </div>
       {props.description && <FieldDescription>{props.description}</FieldDescription>}
       {isInvalid && <FieldError errors={field.state.meta.errors} />}
     </Field>
