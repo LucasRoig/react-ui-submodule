@@ -5,9 +5,16 @@ import { useFieldContext } from "../form-hooks";
 type TextFieldProps = {
   label: string;
   description?: string;
+  type?: React.ComponentProps<typeof Input>["type"];
+  autoComplete?: React.ComponentProps<typeof Input>["autoComplete"];
 };
 
 export function TextField(props: TextFieldProps) {
+  const {
+    autoComplete = "off",
+    type = "text",
+  } = props;
+
   const field = useFieldContext<string>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
   return (
@@ -23,7 +30,8 @@ export function TextField(props: TextFieldProps) {
           onBlur={field.handleBlur}
           onChange={(e) => field.handleChange(e.target.value)}
           aria-invalid={isInvalid}
-          autoComplete="off"
+          autoComplete={autoComplete}
+          type={type}
         />
       </div>
       {props.description && <FieldDescription>{props.description}</FieldDescription>}
