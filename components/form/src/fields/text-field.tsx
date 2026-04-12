@@ -10,17 +10,15 @@ type TextFieldProps = {
 };
 
 export function TextField(props: TextFieldProps) {
-  const {
-    autoComplete = "off",
-    type = "text",
-  } = props;
+  const { autoComplete = "off", type = "text" } = props;
 
   const field = useFieldContext<string>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
   return (
     <Field data-invalid={isInvalid}>
       <FieldLabel htmlFor={field.name}>{props.label}</FieldLabel>
-      <div> {/* Without this wrapper, the lastpass extension adds an element inside the parent flex element which breaks the layout.
+      <div>
+        {/* Without this wrapper, the lastpass extension adds an element inside the parent flex element which breaks the layout.
         /* Thanks to this wrapper, the lastpass extension adds an element inside the wrapper and not the parent flex element, which keeps the layout intact.
         */}
         <Input
