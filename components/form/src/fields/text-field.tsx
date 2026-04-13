@@ -7,6 +7,7 @@ type TextFieldProps = {
   description?: string;
   type?: React.ComponentProps<typeof Input>["type"];
   autoComplete?: React.ComponentProps<typeof Input>["autoComplete"];
+  placeholder?: string;
 };
 
 export function TextField(props: TextFieldProps) {
@@ -30,6 +31,7 @@ export function TextField(props: TextFieldProps) {
           aria-invalid={isInvalid}
           autoComplete={autoComplete}
           type={type}
+          placeholder={props.placeholder}
         />
       </div>
       {props.description && <FieldDescription>{props.description}</FieldDescription>}
