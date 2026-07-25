@@ -9,6 +9,7 @@ import { Textarea } from "./text-area";
 
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
+    // biome-ignore lint/a11y/useSemanticElements: not really important
     <div
       data-slot="input-group"
       role="group"
@@ -58,6 +59,7 @@ function InputGroupAddon({
 }: React.ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
   return (
     // biome-ignore lint/a11y/useKeyWithClickEvents: I guess this is not needed here because we only handle the focus state.
+    // biome-ignore lint/a11y/useSemanticElements: not really important
     <div
       role="group"
       data-slot="input-group-addon"

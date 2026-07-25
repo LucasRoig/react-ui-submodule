@@ -76,6 +76,7 @@ function Field({
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants>) {
   return (
+    // biome-ignore lint/a11y/useSemanticElements: not important here
     <div
       role="group"
       data-slot="field"
@@ -192,6 +193,7 @@ function FieldError({
 
     return (
       <ul className="ml-4 flex list-disc flex-col gap-1">
+        {/** biome-ignore lint/suspicious/noArrayIndexKey: required */}
         {uniqueErrors.map((error, index) => error?.message && <li key={index}>{error.message}</li>)}
       </ul>
     );
