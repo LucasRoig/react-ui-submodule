@@ -32,7 +32,7 @@ const components = defineCollection({
           {
             theme: "github-dark",
             createHighlighter,
-            // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+            // biome-ignore lint/suspicious/noExplicitAny: required
             onVisitLine(node: any) {
               // Prevent lines from collapsing in `display: grid` mode, and allow empty
               // lines to be copy/pasted
@@ -40,11 +40,11 @@ const components = defineCollection({
                 node.children = [{ type: "text", value: " " }];
               }
             },
-            // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+            // biome-ignore lint/suspicious/noExplicitAny: required
             onVisitHighlightedLine(node: any) {
               node.properties.className.push("line--highlighted");
             },
-            // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+            // biome-ignore lint/suspicious/noExplicitAny: required
             onVisitHighlightedWord(node: any) {
               node.properties.className = ["word--highlighted"];
             },

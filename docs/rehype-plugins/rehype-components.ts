@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/suspicious/noConsole: internal tool using console log is ok */
+/** biome-ignore-all lint/suspicious/useAwait: internal tool */
 import fs from "node:fs";
 import { u } from "unist-builder";
 import { visit } from "unist-util-visit";
@@ -7,7 +9,6 @@ import type { UnistNode, UnistTree } from "./unist-types";
 // import { styles } from "../registry/registry-styles"
 
 export function rehypeComponent() {
-  // biome-ignore lint/suspicious/useAwait: <explanation>
   return async (tree: UnistTree) => {
     visit(tree, (node: UnistNode) => {
       if (node.name === "ComponentPreview") {
