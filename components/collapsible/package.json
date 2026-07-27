@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "@lro-ui/utils": "workspace:*",
-    "@radix-ui/react-collapsible": "^1.1.12",
+    "lucide-react": "^0.485.0",
+    "radix-ui": "^1.6.7",
     "react": "^19.2.0"
   }
 }
