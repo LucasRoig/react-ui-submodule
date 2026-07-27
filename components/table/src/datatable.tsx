@@ -38,12 +38,12 @@ export function DataTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     initialState: {
       pagination: {
-        pageIndex: 1,
+        pageIndex: 0,
         pageSize: 50,
       },
     },
     state: {
-      rowSelection: props.rowSelectionModel?.rowSelection,
+      rowSelection: props.rowSelectionModel?.rowSelection ?? {},
     },
     onRowSelectionChange: props.rowSelectionModel?.setRowSelection,
     enableRowSelection:
