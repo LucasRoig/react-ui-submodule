@@ -1,6 +1,15 @@
+import { cn } from "@lro-ui/utils";
 import { useFormContext } from "../form-hooks";
 
-export function FormRoot({ children, ref }: { children: React.ReactNode; ref: React.Ref<HTMLFormElement | null> }) {
+export function FormRoot({
+  children,
+  ref,
+  className,
+}: {
+  children: React.ReactNode;
+  ref: React.Ref<HTMLFormElement | null>;
+  className?: string;
+}) {
   const form = useFormContext();
 
   return (
@@ -11,6 +20,7 @@ export function FormRoot({ children, ref }: { children: React.ReactNode; ref: Re
         form.handleSubmit(e);
       }}
       ref={ref}
+      className={cn("pb-1", className)}
     >
       {children}
     </form>
