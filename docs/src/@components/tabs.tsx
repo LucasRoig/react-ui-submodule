@@ -49,4 +49,4 @@ function TabsContent({ className, ref, ...props }: React.ComponentProps<typeof T
   );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+export { Tabs, TabsContent, TabsList, TabsTrigger };

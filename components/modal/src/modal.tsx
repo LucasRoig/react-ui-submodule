@@ -111,14 +111,14 @@ function ModalDescription({ className, ref, ...props }: React.ComponentProps<typ
 
 export {
   Modal,
-  ModalPortal,
-  ModalOverlay,
-  ModalClose,
-  ModalTrigger,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalTitle,
-  ModalDescription,
   ModalBody,
+  ModalClose,
+  ModalContent,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  ModalPortal,
+  ModalTitle,
+  ModalTrigger,
 };

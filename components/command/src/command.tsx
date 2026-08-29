@@ -103,15 +103,16 @@ CommandShortcut.displayName = "CommandShortcut";
 function CommandLoading({ className, ref, ...props }: React.ComponentProps<typeof CommandPrimitive.Loading>) {
   return <CommandPrimitive.Loading ref={ref} className={cn("", className)} {...props} />;
 }
+
 export {
   Command,
   CommandDialog,
-  CommandInput,
-  CommandList,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
-  CommandShortcut,
-  CommandSeparator,
+  CommandList,
   CommandLoading,
+  CommandSeparator,
+  CommandShortcut,
 };

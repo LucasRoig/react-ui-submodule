@@ -54,4 +54,4 @@ function TableCaption({ className, ref, ...props }: React.ComponentProps<"captio
   return <caption ref={ref} className={cn("mt-4 text-sm text-muted-foreground", className)} {...props} />;
 }
 
-export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption };
+export { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow };
